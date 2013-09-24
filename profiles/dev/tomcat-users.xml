@@ -27,7 +27,7 @@
   <!.. ..> that surrounds them.
 -->
     <role rolename="admin"/>
-	<role rolename="admin-gui"/>
+    <role rolename="admin-gui"/>
     <user password="secret" roles="admin,manager-gui,manager-script,manager-status,manager-jmx" username="root"/>
     <user password="netbeans" roles="admin,manager-gui,manager-script,manager-status,manager-jmx,admin-gui" username="netbeans"/>
 </tomcat-users>

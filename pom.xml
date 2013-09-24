@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>net.petrikainulainen.maven</groupId>
-    <artifactId>running-solr-with-maven2</artifactId>
+    <artifactId>running-solr-with-maven</artifactId>
     <packaging>war</packaging>
     <version>0.1</version>
     <name>Todo Solr Example2</name>
@@ -245,6 +245,7 @@
                         <solr.default.core.name>todo</solr.default.core.name>
                         <solr.solr.home>/sp/reports/solr-tomcat</solr.solr.home>
                     </systemProperties>
+                    <server>maven-tomcat</server>
                     <tomcatUsers>${project.basedir}/profiles/${build.profile.id}/tomcat-users.xml</tomcatUsers>
                     <username>netbeans</username>
                     <password>netbeans</password>
@@ -254,20 +255,25 @@
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat6-maven-plugin</artifactId>
                 <version>2.1</version>
-                <configuration>
+                <configuration>                    
                     <path>/solr</path>                    
                     <port>8089</port>
                     <mode>war</mode>                    
                     <charset>UTF-8</charset>
                     <update>true</update>
-                    <url>http://localhost:8089/manager/html</url>
+                    <url>http://localhost:8089/manager</url>
                     <systemProperties>
-                        <solr.default.core.directory>${solr.default.core.directory}</solr.default.core.directory>
-                        <solr.default.core.name>${solr.default.core.name}</solr.default.core.name>
-                        <solr.solr.home>/${solr.solr.home}</solr.solr.home>
+                        <solr.default.core.directory>todo</solr.default.core.directory>
+                        <solr.default.core.name>todo</solr.default.core.name>
+                        <solr.solr.home>/sp/reports/solr-tomcat</solr.solr.home>
                     </systemProperties>
+                    <server>maven-tomcat</server>
+                    <tomcatUsers>${project.basedir}/profiles/${build.profile.id}/tomcat-users.xml</tomcatUsers>
+                    <username>netbeans</username>
+                    <password>netbeans</password>
                 </configuration>
             </plugin>
+            
         </plugins>
     </build>
 </project>
