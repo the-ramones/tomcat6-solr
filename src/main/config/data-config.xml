@@ -1,0 +1,15 @@
+<dataConfig>
+    <dataSource driver="com.mysql.jdbc.Driver"
+                url="<![CDATA[jdbc:mysql://localhost:3306/enterprise?autoReconnect=true&characterEncoding=utf8]]>"
+                user="netbeans" 
+                password="netbeans" />
+    <document name="reports">
+        <entity name="item" query="select * from reports">
+            <field column="id" name="id" />
+            <field column="performer" name="performer" />
+            <field column="activity" name="activity" />
+            <field column="startDate" name="startDate" />
+            <field column="endDate" name="endDate" />
+        </entity>
+    </document>
+</dataConfig>
