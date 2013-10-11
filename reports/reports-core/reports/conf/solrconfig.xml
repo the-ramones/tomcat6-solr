@@ -80,6 +80,8 @@
 
   <lib dir="../../../contrib/velocity/lib" regex=".*\.jar" />
   <lib dir="../../../dist/" regex="solr-velocity-\d.*\.jar" />
+  
+  <lib dir="lib" regex=".*\.jar" /> 
 
   <!-- If a 'dir' option (with or without a regex) is used and nothing
        is found that matches, a warning will be logged.
@@ -113,8 +115,8 @@
        for better NRT performance.
 
        One can force a particular implementation via solr.MMapDirectoryFactory,
-       solr.NIOFSDirectoryFactory, or solr.SimpleFSDirectoryFactory.
-
+       solr.NIO
+       
        solr.RAMDirectoryFactory is memory based, not
        persistent, and doesn't work with replication.
     -->
@@ -1124,6 +1126,15 @@
        </lst>
      </requestHandler>
     -->
+    
+    <requestHandler
+            class="org.apache.solr.handler.dataimport.DataImportHandler"
+            name="/dataimport">
+        <lst name="defaults">
+            <str name="config">data-config.xml</str>
+        </lst>
+    </requestHandler>
+
 
   <!-- ping/healthcheck -->
   <requestHandler name="/admin/ping" class="solr.PingRequestHandler">
@@ -1808,9 +1819,9 @@
     -->
     
 
-  <!-- Legacy config for the admin interface -->
-  <admin>
-    <defaultQuery>*:*</defaultQuery>
-  </admin>
+    <!-- Legacy config for the admin interface -->
+    <admin>
+        <defaultQuery>*:*</defaultQuery>
+    </admin>
 
 </config>

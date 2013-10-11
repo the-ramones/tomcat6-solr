@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <schema name="todo" version="1.5">
     <fields>
-        <field name="id" type="string" indexed="true" stored="true" required="true"/>
+        <field name="id" type="long" indexed="true" stored="true" required="true"/>
         <field name="title" type="text_general" indexed="true" stored="true" required="true" multiValued="false"/>
         <field name="description" type="text_general" indexed="true" stored="false" multiValued="false"/>
+        
+        <field name="performer" type="text_general" indexed="true" stored="true" multiValued="false" />
+        <field name="activity" type="text_general" indexed="true" stored="true" multiValued="false" />
+        <field name="startDate" type="date" indexed="true" stored="true" multiValued="false" />
+        <field name="endDate" type="date" indexed="true" stored="true" required="false" multiValued="false" />
+        
 
         <field name="text" type="text_general" indexed="true" stored="false" multiValued="true"/>
         <field name="_version_" type="long" indexed="true" stored="true"/>
@@ -17,8 +23,9 @@
     <types>
         <fieldType name="long" class="solr.TrieLongField" precisionStep="0" positionIncrementGap="0"/>
         <fieldType name="string" class="solr.StrField" sortMissingLast="true" />
-        <fieldType name="text_general" class="solr.TextField" positionIncrementGap="100">
-            <!-- Configures the analysis done at the index phase -->
+        <fieldType name="text_general" class="solr.TextField" positionIncrementGap="100" />
+        <fieldType name="date" class="solr.DateField" />
+            <!-- Configures the analysis done at the index phase -->1
             <analyzer type="index">
                 <!-- Uses word break rules of the Unicode Text Segmentation algorith when splitting text into words. -->
                 <tokenizer class="solr.StandardTokenizerFactory"/>
@@ -38,6 +45,5 @@
                 <!-- Transforms text to lower case -->
                 <filter class="solr.LowerCaseFilterFactory"/>
             </analyzer>
-        </fieldType>
     </types>
 </schema>

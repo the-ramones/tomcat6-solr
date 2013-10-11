@@ -1,0 +1,13 @@
+<dataConfig>
+    <dataSource driver="com.mysql.jdbc.Driver" url="![CDATA[jdbs:mysql:http://localhost:3306/enterprise?autoReconnect=true&characterEncoding=utf-8]]" user="sa" />
+        <document name="reports">
+            <entity pk="id" name="report" query="select * from reports"
+                deltaImportQuery="select * from item where ID='${dih.delta.id}'">
+                <field column="id" name="id" />
+                <field column="performer" name="performer" />
+                <field column="activity" name="activity" />
+                <field column="endDate" name="endDate" />
+                <field column="startDate" name="startDate" />
+            </entity>
+        </document>
+</dataConfig>
