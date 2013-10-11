@@ -1,14 +1,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>net.petrikainulainen.maven</groupId>
-    <artifactId>running-solr-with-maven</artifactId>
+    <groupId>reports.solr</groupId>
+    <artifactId>reports-solr</artifactId>
     <packaging>war</packaging>
-    <version>0.1</version>
-    <name>Todo Solr Example2</name>
-    <description>
-        This Maven project demonstrates how we can run Solr in a development environment.
-    </description>
+    <version>0.1.1</version>
+    <name>Reports! Solr Server</name>
+    <description>Solr server for Reports!
+
+Solr instance is used by Reports! application to perform mature search.
+Uses DataImportHandler for direct dynamic data import (full and delta) 
+from the database over the JDBC.</description>
     <licenses>
         <license>
             <name>Apache License 2.0</name>

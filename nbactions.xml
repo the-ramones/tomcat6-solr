@@ -74,4 +74,14 @@
                 <goal>jetty:stop</goal>
             </goals>
         </action>
+        <action>
+            <actionName>CUSTOM-jwtty-run-war-dev</actionName>
+            <displayName>jwtty-run-war-dev</displayName>
+            <goals>
+                <goal>jetty:run-war</goal>
+            </goals>
+            <activatedProfiles>
+                <activatedProfile>dev</activatedProfile>
+            </activatedProfiles>
+        </action>
     </actions>
