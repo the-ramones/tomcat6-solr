@@ -37,4 +37,41 @@
                 <activatedProfile>dev</activatedProfile>
             </activatedProfiles>
         </action>
+        <action>
+            <actionName>CUSTOM-tomcat6-run-war</actionName>
+            <displayName>tomcat6-run-war</displayName>
+            <goals>
+                <goal>tomcat6:run-war</goal>
+            </goals>
+            <activatedProfiles>
+                <activatedProfile>dev</activatedProfile>
+            </activatedProfiles>
+        </action>
+        <action>
+            <actionName>CUSTOM-tomcat6-shutdown</actionName>
+            <displayName>tomcat6-shutdown</displayName>
+            <goals>
+                <goal>tomcat6:shutdown</goal>
+            </goals>
+            <activatedProfiles>
+                <activatedProfile>dev</activatedProfile>
+            </activatedProfiles>
+        </action>
+        <action>
+            <actionName>CUSTOM-tomcat6-dev-run-war</actionName>
+            <displayName>tomcat6-dev-run-war</displayName>
+            <goals>
+                <goal>tomcat6:run-war</goal>
+            </goals>
+            <activatedProfiles>
+                <activatedProfile>dev</activatedProfile>
+            </activatedProfiles>
+        </action>
+        <action>
+            <actionName>CUSTOM-jetty-stop</actionName>
+            <displayName>jetty-stop</displayName>
+            <goals>
+                <goal>jetty:stop</goal>
+            </goals>
+        </action>
     </actions>
