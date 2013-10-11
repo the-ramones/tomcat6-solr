@@ -149,6 +149,10 @@
                                         <include>solr.xml</include>
                                     </includes>
                                 </resource>
+                                <resource>
+                                    <directory>${project.basedir}/lib</directory>
+                                    <targetPath>${solr.solr.home}/lib</targetPath>
+                                </resource>
                                 <!-- Copies configuration files -->
                                 <resource>
                                     <directory>${project.basedir}/src/main/config</directory>

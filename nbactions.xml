@@ -67,4 +67,11 @@
                 <activatedProfile>dev</activatedProfile>
             </activatedProfiles>
         </action>
+        <action>
+            <actionName>CUSTOM-jetty-stop</actionName>
+            <displayName>jetty-stop</displayName>
+            <goals>
+                <goal>jetty:stop</goal>
+            </goals>
+        </action>
     </actions>

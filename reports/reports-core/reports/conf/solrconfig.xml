@@ -80,6 +80,9 @@
 
   <lib dir="../../../contrib/velocity/lib" regex=".*\.jar" />
   <lib dir="../../../dist/" regex="solr-velocity-\d.*\.jar" />
+  
+  <!-- All in /lib -->
+  <lib dir="lib" regex=".*\.jar" />
 
   <!-- If a 'dir' option (with or without a regex) is used and nothing
        is found that matches, a warning will be logged.
@@ -101,7 +104,7 @@
        replication is in use, this should match the replication
        configuration.
     -->
-  <dataDir>${solr.data.dir:}</dataDir>
+  <dataDir>${solr.data.dir:./data}</dataDir>
 
 
   <!-- The DirectoryFactory to use for indexes.
@@ -506,7 +509,7 @@
     <filterCache class="solr.FastLRUCache"
                  size="512"
                  initialSize="512"
-                 autowarmCount="0"/>
+                 autowarmCount="128"/>
 
     <!-- Query Result Cache
          
@@ -516,7 +519,7 @@
     <queryResultCache class="solr.LRUCache"
                      size="512"
                      initialSize="512"
-                     autowarmCount="0"/>
+                     autowarmCount="128"/>
    
     <!-- Document Cache
 
@@ -847,13 +850,16 @@
     <!-- If the default list of SearchComponents is not desired, that
          list can either be overridden completely, or components can be
          prepended or appended to the default list.  (see below)
-      -->
-    <!--
+      -->    
        <arr name="components">
-         <str>nameOfCustomComponent1</str>
-         <str>nameOfCustomComponent2</str>
+            <str>query</str>
+            <str>facet</str>
+            <str>mlt</str>
+            <str>highlight</str>
+            <str>stats</str>
+            <str>debug</str>
        </arr>
-      -->
+      
     </requestHandler>
 
   <!-- A request handler that returns indented JSON by default -->
@@ -1190,14 +1196,14 @@
        instances of SearchHandler (which can access them by name)
        
        By default, the following components are available:
-       
+  -->
        <searchComponent name="query"     class="solr.QueryComponent" />
        <searchComponent name="facet"     class="solr.FacetComponent" />
        <searchComponent name="mlt"       class="solr.MoreLikeThisComponent" />
        <searchComponent name="highlight" class="solr.HighlightComponent" />
        <searchComponent name="stats"     class="solr.StatsComponent" />
        <searchComponent name="debug"     class="solr.DebugComponent" />
-   
+   <!--
        Default configuration in a requestHandler would look like:
 
        <arr name="components">
@@ -1501,6 +1507,12 @@
     <arr name="components">
       <str>terms</str>
     </arr>
+  </requestHandler>
+
+<requestHandler name="/dataimport" class="org.apache.solr.handler.dataimport.DataImportHandler">
+    <lst name="defaults">
+      <str name="config">data-config.xml</str>
+    </lst>
   </requestHandler>
 
 
@@ -1808,9 +1820,9 @@
     -->
     
 
-  <!-- Legacy config for the admin interface -->
-  <admin>
-    <defaultQuery>*:*</defaultQuery>
-  </admin>
+    <!-- Legacy config for the admin interface -->
+    <admin>
+        <defaultQuery>*:*</defaultQuery>
+    </admin>
 
 </config>
