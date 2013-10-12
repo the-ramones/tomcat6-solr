@@ -8,9 +8,9 @@
     <name>Reports! Solr Server</name>
     <description>Solr server for Reports!
 
-Solr instance is used by Reports! application to perform mature search.
-Uses DataImportHandler for direct dynamic data import (full and delta) 
-from the database over the JDBC.</description>
+        Solr instance is used by Reports! application to perform mature search.
+        Uses DataImportHandler for direct dynamic data import (full and delta) 
+        from the database over the JDBC.</description>
     <licenses>
         <license>
             <name>Apache License 2.0</name>
@@ -26,7 +26,15 @@ from the database over the JDBC.</description>
         <maven.tomcat.charset>UTF-8</maven.tomcat.charset>        
         <maven.tomcat.url>http://localhost:8090/manager/html</maven.tomcat.url>
     </properties>
-    
+   
+    <developers>
+        <developer>
+            <id>paul-kulitski</id>
+            <name>Paul Kulitski</name>
+            <timezone>+3</timezone>
+        </developer>
+    </developers>
+   
     <profiles>
         <profile>
             <id>dev</id>
@@ -35,6 +43,12 @@ from the database over the JDBC.</description>
             </activation>
             <properties>
                 <build.profile.id>dev</build.profile.id>
+            </properties>
+        </profile>
+        <profile>
+            <id>production</id>
+            <properties>
+                <build.profile.id>production</build.profile.id>
             </properties>
         </profile>
     </profiles>
@@ -236,6 +250,7 @@ from the database over the JDBC.</description>
                     </webApp>
                 </configuration>
             </plugin>
+            <!-- Maven Tomcat 7 -->
             <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat7-maven-plugin</artifactId>
@@ -256,6 +271,7 @@ from the database over the JDBC.</description>
                     <password>netbeans</password>
                 </configuration>
             </plugin>
+            <!-- Maven Tomcat 6 -->
             <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat6-maven-plugin</artifactId>
