@@ -2,13 +2,13 @@
 <schema name="todo" version="1.5">
     <fields>
         <field name="id" type="long" indexed="true" stored="true" required="true"/>
-        <field name="performer" type="text_general" indexed="true" stored="true" multiValued="false" />
-        <field name="activity" type="text_general" indexed="true" stored="true" multiValued="false" />
+        <field name="performer" type="text_ws" indexed="true" stored="true" multiValued="false" />
+        <field name="activity" type="text_ws" indexed="true" stored="true" multiValued="false" />
         <field name="startDate" type="date" indexed="true" stored="true" multiValued="false" />
         <field name="endDate" type="date" indexed="true" stored="true" required="false" multiValued="false" />        
 
-        <field name="spell" type="text_spell" indexed="true" stored="false" multiValued="true" />
         <field name="text" type="text_general" indexed="true" stored="false" multiValued="true"/>
+        <field name="spell" type="text_spell" indexed="true" stored="false" multiValued="true" />
         <field name="_version_" type="long" indexed="true" stored="true"/>
     </fields>
 
@@ -24,8 +24,8 @@
         <fieldType name="string" class="solr.StrField" sortMissingLast="true" />
         <fieldType name="text_general" class="solr.TextField" positionIncrementGap="100" />
         <fieldType name="date" class="solr.DateField" />
-        <fieldType name="text_ws" class="solr.TextField">
-            <!-- Configures the analysis done at the index phase -->1
+        <fieldType name="text_ws" class="solr.TextField" positionIncrementGap="100">
+            <!-- Configures the analysis done at the index phase -->
             <analyzer type="index">
                 <!-- Uses word break rules of the Unicode Text Segmentation algorith when splitting text into words. -->
                 <tokenizer class="solr.StandardTokenizerFactory"/>
