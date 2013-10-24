@@ -24,13 +24,13 @@
 
 -->
 <elevate>
- <query text="foo bar">
+ <query text="Bruce Willis">
   <doc id="1" />
   <doc id="2" />
   <doc id="3" />
  </query>
  
- <query text="ipod">
+ <query text="Will Smith">
    <doc id="1" />  <!-- put the actual ipod at the top -->
    <doc id="2" exclude="true" /> <!-- exclude this cable -->
  </query>
